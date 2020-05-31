@@ -127,12 +127,16 @@ def sendEmail(to,sub,msg):
 @app.route('/send_mails', methods=['GET','POST'])
 def send_mails():   
     df = pd.read_excel("mails.xlsx")
+    df2 = pd.read_excel("users.xlsx")
     email_names = list(df["Email"])
     
-    if(len(df)>0):
+    if(len(df)>0 and len(df2)==1):
         sendEmail(email_names,"Regarding new info", 'Welcome Mr.')
         msg = "Message Sent Successfully"
+    elif(len(df2)==0):
+        msg = "No sender exists"
     else:
+    
         msg = "No Recipients Exists"
     return render_template('login.html',msg = msg)
 

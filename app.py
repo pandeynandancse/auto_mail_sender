@@ -33,8 +33,8 @@ def insert_dob():
     return render_template('login.html',msg = "Successfully added")
 
 
-GMAIL_ID = 'artificialintelligencework@gmail.com'
-GMAIL_PSWD = 'Pkp82@82'
+GMAIL_ID = 'mail@gmail.com'
+GMAIL_PSWD = 'mailpassword'
 
 
 

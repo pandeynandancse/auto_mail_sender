@@ -116,11 +116,9 @@ def sendEmail(to,sub,msg):
     except:
     	print("error")
     
-    if len(to)>0:
-        s.sendmail(GMAIL_ID,to,f'Subject: {sub}\n\n{msg}')
-    else:
-        msg = "No recipients exists"
-        return render_template('login.html',msg=msg)
+
+    s.sendmail(GMAIL_ID,to,f'Subject: {sub}\n\n{msg}')
+
     s.quit()
     
 
@@ -130,8 +128,12 @@ def sendEmail(to,sub,msg):
 def send_mails():   
     df = pd.read_excel("mails.xlsx")
     email_names = list(df["Email"])
-    sendEmail(email_names,"Regarding new info", 'Welcome Mr.')
-    msg = "Message Sent Successfully"
+    
+    if(len(df)>0):
+        sendEmail(email_names,"Regarding new info", 'Welcome Mr.')
+        msg = "Message Sent Successfully"
+    else:
+        msg = "No Recipients Exists"
     return render_template('login.html',msg = msg)
 
 app.run(debug=True)

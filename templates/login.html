@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nandan Pandey</title>
+        <link rel = 'icon' href = "img/fav.png" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+        
+        <!-- Update these with your own fonts -->
+
+        <!-- google font api -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+        
+       
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/logi.css') }}">
+
+    </head>
+    <body>       
+              <div class="background-wrap">
+                <div class="background"></div>
+              </div>
+
+              <form id="accesspanel" action="/insert_dob" method="post">
+                {% if msg != ""%}
+                <h1 id="litheader">{{ msg }}</h1>
+                {%endif%}
+                {% if msg == ""%}
+                <h1 id="litheader">Welcome</h1>
+                {%endif%}
+                <div class="inset">
+                  <p>
+                    <input type="text"  id="email" placeholder="Email address" name ="email" required>
+                  </p>
+
+                  <!-- <p>
+                    <input type="password" name="password" id="password" placeholder="Access code">
+                  </p> -->
+
+
+                  <p>
+                    <input type="date" name="dob" id="password" required>
+                  </p>
+                  <div style="text-align: center;">
+                  <!--   <div class="checkboxouter">
+                      <input type="checkbox" name="rememberme" id="remember" value="Remember">
+                      <label class="checkbox"></label>
+                    </div>
+                    <label for="remember">Remember me for 14 days</label>
+                  </div>
+                  <input class="loginLoginValue" type="hidden" name="service" value="login" />
+                </div> -->
+                <p class="p-container">
+                  <input type="submit" name="Login" id="go" value="Add Contact">
+                </p>
+                
+              </form>     
+              <p class="p-container">
+                <a href = "/send_mails"><input id="gone" value="Send Mail" class = ""></a> 
+              </p> 
+
+              <p class="p-container">
+                <a href = "/sender"><input id="gone" value="Register Sender" class = ""></a> 
+              </p> 
+
+              <p class="p-container">
+                <a href = "/delete_contacts"><input id="gone" value="Delete Contacts" class = ""></a> 
+              </p> 
+
+              <p class="p-container">
+                <a href = "/delete_users"><input id="gone" value="Delete Sender" class = ""></a> 
+              </p> 
+
+        <script src="{{ url_for('static', filename='js/log.js') }}"></script>
+    </body>
+</html>
